@@ -1,12 +1,13 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClaimBot">
-  <!-- Favicon uses the solid badge instead of the seal ring: at 16px the ring
-       closes up, and the silhouette alone still identifies the brand. -->
+  <!-- Shield + payout bolt. Shared mark with the app <Logo> component. -->
   <defs>
-    <linearGradient id="i" x1="5" y1="3" x2="27" y2="29" gradientUnits="userSpaceOnUse">
+    <linearGradient id="s" x1="6" y1="2" x2="26" y2="30" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#86EFAC"/>
-      <stop offset="0.55" stop-color="#4ADE80"/>
-      <stop offset="1" stop-color="#16A34A"/>
+      <stop offset="0.5" stop-color="#4ADE80"/>
+      <stop offset="1" stop-color="#15A349"/>
     </linearGradient>
   </defs>
-  <path fill="url(#i)" fill-rule="evenodd" d="M15.2 2.4A1.6 1.6 0 0 1 16.8 2.4L26.4 7.9A1.6 1.6 0 0 1 27.2 9.3V20.7A1.6 1.6 0 0 1 26.4 22.1L16.8 27.6A1.6 1.6 0 0 1 15.2 27.6L5.6 22.1A1.6 1.6 0 0 1 4.8 20.7V9.3A1.6 1.6 0 0 1 5.6 7.9Z M17.85 7.6 11.35 16.65A0.55 0.55 0 0 0 11.8 17.5H14.7L14.1 22.6A0.55 0.55 0 0 0 15.1 23.0L20.65 14.35A0.55 0.55 0 0 0 20.2 13.5H17.35L18.85 8.1A0.55 0.55 0 0 0 17.85 7.6Z"/>
+  <path fill="url(#s)" d="M15.5 2.5A1.4 1.4 0 0 1 16.5 2.5L26.1 5.9A1.4 1.4 0 0 1 27.1 7.2V15.3C27.1 21.7 22.5 26.4 16.4 29.1A1.1 1.1 0 0 1 15.6 29.1C9.5 26.4 4.9 21.7 4.9 15.3V7.2A1.4 1.4 0 0 1 5.9 5.9Z"/>
+  <path fill="#ffffff" fill-opacity="0.18" d="M15.5 2.5A1.4 1.4 0 0 1 16.5 2.5L26.1 5.9A1.4 1.4 0 0 1 27.1 7.2V9.4C27.1 10.1 22.5 11.1 16 11.1C9.5 11.1 4.9 10.1 4.9 9.4V7.2A1.4 1.4 0 0 1 5.9 5.9Z"/>
+  <path fill="#ffffff" d="M17.9 7.7L11.5 16.7A0.55 0.55 0 0 0 11.95 17.55H14.85L14.2 22.9A0.55 0.55 0 0 0 15.2 23.3L20.7 14.4A0.55 0.55 0 0 0 20.25 13.55H17.35L18.9 8.2A0.55 0.55 0 0 0 17.9 7.7Z"/>
 </svg>

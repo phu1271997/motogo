@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useClaimStatus } from '@/hooks/useClaimStatus';
 import { useClaimPipeline } from '@/hooks/useClaimPipeline';
 import { ClaimStatus } from '@/types/claim';
-import { formatDeadline, formatUsdc, usdcToVnd } from '@/lib/format';
+import { formatDeadline, formatUsdc } from '@/lib/format';
 import { ipfsUrl } from '@/lib/ipfs';
 import { cn } from '@/lib/cn';
 import { Spinner } from './ui/Spinner';
@@ -13,7 +13,7 @@ const STEPS = [
   { id: ClaimStatus.Submitted, label: 'Submitted', desc: 'Claim recorded on the blockchain' },
   { id: ClaimStatus.Extracting, label: 'Reading photo', desc: 'AI is reading the damage from your photo' },
   { id: ClaimStatus.Verifying, label: 'Verifying', desc: 'Cross-checking DMV, weather and EXIF' },
-  { id: ClaimStatus.Estimating, label: 'Estimating cost', desc: 'Pricing the repair against Vietnamese rates' },
+  { id: ClaimStatus.Estimating, label: 'Estimating cost', desc: 'Pricing the repair against market rates' },
   { id: ClaimStatus.Judged, label: 'Judging', desc: 'Agent aggregates the results and signs a verdict' },
   { id: ClaimStatus.Paid, label: 'Payout', desc: 'USDC transferred to your wallet' },
 ];
@@ -156,7 +156,6 @@ export function ClaimStatusTracker({ claimId }: { claimId: bigint }) {
             Payout complete
           </div>
           <div className="num mt-3 text-4xl font-bold">{formatUsdc(claim.approvedAmount)}</div>
-          <div className="num text-sm text-slate-400">≈ {usdcToVnd(claim.approvedAmount)}</div>
           <div className="mt-5 border-t border-white/10 pt-4">
             <div className="label">Judge reasoning · confidence {claim.confidence}%</div>
             <p className="text-sm italic leading-relaxed text-slate-300">{claim.reasoning}</p>

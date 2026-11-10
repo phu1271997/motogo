@@ -1,12 +1,12 @@
 import { cn } from '@/lib/cn';
 
 /**
- * ClaimBot mark: a sealed hexagonal badge with a bolt knocked out of it.
+ * ClaimBot mark: a protective shield with a payout bolt struck through it.
  *
- * The hex-badge silhouette is the "verified" idiom, which is what an insurance
- * verdict written on-chain is; the bolt is the 90-second payout. Both shapes are
- * knockouts on a single filled path, so the mark works on any background and
- * stays legible when it is scaled down to a favicon.
+ * The shield is the insurance idiom — cover you can trust. The white bolt is
+ * the 90-second payout cutting clean through it. A soft top sheen gives the
+ * badge depth at large sizes, while the silhouette stays legible at favicon
+ * scale. Works on any background.
  */
 export function Logo({ size = 32, className }: { size?: number; className?: string }) {
   return (
@@ -21,25 +21,34 @@ export function Logo({ size = 32, className }: { size?: number; className?: stri
       className={cn('shrink-0', className)}
     >
       <defs>
-        <linearGradient id="claimbotMark" x1="5" y1="3" x2="27" y2="29" gradientUnits="userSpaceOnUse">
+        <linearGradient id="cbShield" x1="6" y1="2" x2="26" y2="30" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#86EFAC" />
-          <stop offset="0.55" stopColor="#4ADE80" />
-          <stop offset="1" stopColor="#16A34A" />
+          <stop offset="0.5" stopColor="#4ADE80" />
+          <stop offset="1" stopColor="#15A349" />
+        </linearGradient>
+        <linearGradient id="cbBolt" x1="12" y1="7" x2="20" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="1" stopColor="#E9FBF0" />
         </linearGradient>
       </defs>
 
-      {/* Outer badge with the inner seal ring cut out of it. */}
+      {/* Shield body */}
       <path
-        fill="url(#claimbotMark)"
-        fillRule="evenodd"
-        d="M15.2 2.4A1.6 1.6 0 0 1 16.8 2.4L26.4 7.9A1.6 1.6 0 0 1 27.2 9.3V20.7A1.6 1.6 0 0 1 26.4 22.1L16.8 27.6A1.6 1.6 0 0 1 15.2 27.6L5.6 22.1A1.6 1.6 0 0 1 4.8 20.7V9.3A1.6 1.6 0 0 1 5.6 7.9Z
-           M15.6 5.6A0.8 0.8 0 0 1 16.4 5.6L23.9 9.9A0.8 0.8 0 0 1 24.3 10.6V19.4A0.8 0.8 0 0 1 23.9 20.1L16.4 24.4A0.8 0.8 0 0 1 15.6 24.4L8.1 20.1A0.8 0.8 0 0 1 7.7 19.4V10.6A0.8 0.8 0 0 1 8.1 9.9Z"
+        fill="url(#cbShield)"
+        d="M15.5 2.5A1.4 1.4 0 0 1 16.5 2.5L26.1 5.9A1.4 1.4 0 0 1 27.1 7.2V15.3C27.1 21.7 22.5 26.4 16.4 29.1A1.1 1.1 0 0 1 15.6 29.1C9.5 26.4 4.9 21.7 4.9 15.3V7.2A1.4 1.4 0 0 1 5.9 5.9Z"
       />
 
-      {/* Bolt, optically centred on the badge centre at (16, 15). */}
+      {/* Top sheen for depth */}
       <path
-        fill="url(#claimbotMark)"
-        d="M17.6 9.0L12.4 16.3A0.5 0.5 0 0 0 12.8 17.1H15.15L14.7 21.3A0.5 0.5 0 0 0 15.6 21.6L20.0 14.5A0.5 0.5 0 0 0 19.6 13.7H17.25L18.5 9.4A0.5 0.5 0 0 0 17.6 9.0Z"
+        fill="#FFFFFF"
+        fillOpacity="0.18"
+        d="M15.5 2.5A1.4 1.4 0 0 1 16.5 2.5L26.1 5.9A1.4 1.4 0 0 1 27.1 7.2V9.4C27.1 10.1 22.5 11.1 16 11.1C9.5 11.1 4.9 10.1 4.9 9.4V7.2A1.4 1.4 0 0 1 5.9 5.9Z"
+      />
+
+      {/* Payout bolt */}
+      <path
+        fill="url(#cbBolt)"
+        d="M17.9 7.7L11.5 16.7A0.55 0.55 0 0 0 11.95 17.55H14.85L14.2 22.9A0.55 0.55 0 0 0 15.2 23.3L20.7 14.4A0.55 0.55 0 0 0 20.25 13.55H17.35L18.9 8.2A0.55 0.55 0 0 0 17.9 7.7Z"
       />
     </svg>
   );

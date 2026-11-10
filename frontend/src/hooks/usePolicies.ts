@@ -11,6 +11,21 @@ export interface Tier {
   durationDays: bigint;
 }
 
+/**
+ * Human-friendly names for the on-chain tiers, ordered cheapest → richest.
+ * Tiers come back from the contract in ascending order, so the index maps
+ * straight onto this table. Falls back gracefully if a 4th tier is ever added.
+ */
+export const PLAN_META = [
+  { name: 'Plus', tagline: 'Essential cover for light riders' },
+  { name: 'Pro', tagline: 'Best for daily commuters' },
+  { name: 'Premium', tagline: 'Maximum protection, top payouts' },
+] as const;
+
+export function planMeta(id: number): { name: string; tagline: string } {
+  return PLAN_META[id] ?? { name: `Tier ${id + 1}`, tagline: '' };
+}
+
 export function useTiers() {
   const { data, isLoading, error } = useReadContract({
     address: POLICY_MANAGER,

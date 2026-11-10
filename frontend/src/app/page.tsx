@@ -16,7 +16,7 @@ const PIPELINE = [
   {
     n: '03',
     name: 'Estimator',
-    desc: 'Prices the repair against a Vietnamese parts table, sanity-checked by an LLM.',
+    desc: 'Prices the repair against a parts-cost table, sanity-checked by an LLM.',
     tag: 'pricing',
   },
   {
@@ -87,7 +87,6 @@ export default function HomePage() {
               <div className="py-5">
                 <div className="text-xs uppercase tracking-[0.14em] text-slate-500">Payout</div>
                 <div className="num mt-1 text-4xl font-bold text-accent">42.00 USDC</div>
-                <div className="num text-sm text-slate-500">≈ 1,050,000 ₫</div>
               </div>
               <dl className="space-y-2.5 border-t border-white/10 pt-4 text-sm">
                 {[

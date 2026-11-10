@@ -6,7 +6,7 @@ import { parseUnits } from 'viem';
 import { CLAIM_REGISTRY, claimRegistryAbi } from '@/lib/contracts';
 import { ClaimStatus, toClaim, type Claim } from '@/types/claim';
 import { ipfsUrl } from '@/lib/ipfs';
-import { formatUsdc, usdcToVnd, shortAddress } from '@/lib/format';
+import { formatUsdc, shortAddress } from '@/lib/format';
 import { Spinner } from '@/components/ui/Spinner';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { cn } from '@/lib/cn';
@@ -31,7 +31,7 @@ interface Analysis {
     scene_description: string;
   };
   verified: { cross_check_score: number; issues: string[] };
-  estimated: { recommended_payout_vnd: number; recommended_payout_usdc: number; reasoning: string };
+  estimated: { recommended_payout_usdc: number; reasoning: string };
 }
 
 const KEY_STORAGE = 'claimbot-admin-key';
@@ -361,7 +361,7 @@ function ReviewDetail({
               className="field num"
             />
             <p className="num mt-1 text-xs text-slate-500">
-              ≈ {usdcToVnd(parseSafe(amount))} · cap {formatUsdc(BigInt(analysis.remainingCoverage))}
+              cap {formatUsdc(BigInt(analysis.remainingCoverage))}
             </p>
           </div>
           <div>
@@ -416,14 +416,6 @@ function ReviewDetail({
       </div>
     </div>
   );
-}
-
-function parseSafe(v: string): bigint {
-  try {
-    return parseUnits((v || '0') as `${number}`, 6);
-  } catch {
-    return 0n;
-  }
 }
 
 function Field({ label, value, mono }: { label: string; value: string; mono?: boolean }) {

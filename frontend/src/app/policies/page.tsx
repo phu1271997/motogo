@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAccount } from 'wagmi';
-import { useMyPolicies, useTiers, type Tier } from '@/hooks/usePolicies';
+import { useMyPolicies, useTiers, planMeta, type Tier } from '@/hooks/usePolicies';
 import { usePurchasePolicy } from '@/hooks/usePurchasePolicy';
 import { PolicyCard } from '@/components/PolicyCard';
 import { ConfigNotice } from '@/components/ConfigNotice';
@@ -13,7 +13,9 @@ import { formatUsdc } from '@/lib/format';
 import { etherscanTx } from '@/lib/contracts';
 import { cn } from '@/lib/cn';
 
-const PLATE_PATTERN = /^[0-9]{2}[-\s]?[A-Za-z]{1,2}[0-9]?[-\s]?[0-9]{3,5}$/;
+// Accepts most international plate formats: 2–10 alphanumeric characters with
+// optional spaces or dashes as separators (e.g. ABC-1234, AB12 CDE, 7XYZ123).
+const PLATE_PATTERN = /^[A-Za-z0-9](?:[A-Za-z0-9\s-]{0,10}[A-Za-z0-9])?$/;
 
 export default function PoliciesPage() {
   const { isConnected } = useAccount();
@@ -134,6 +136,7 @@ function PurchaseModal({ tier, onClose }: { tier: Tier; onClose: () => void }) {
   const [plate, setPlate] = useState('');
   const { purchase, step, txHash, error } = usePurchasePolicy();
 
+  const meta = planMeta(tier.id);
   const plateValid = PLATE_PATTERN.test(plate.trim());
   const busy = step === 'approving' || step === 'purchasing';
 
@@ -152,7 +155,7 @@ function PurchaseModal({ tier, onClose }: { tier: Tier; onClose: () => void }) {
       onClick={() => !busy && onClose()}
       role="dialog"
       aria-modal="true"
-      aria-label={`Buy the ${formatUsdc(tier.premium)} plan`}
+      aria-label={`Buy the ${meta.name} plan`}
     >
       <div
         className="card glass-edge w-full max-w-md animate-scale-in p-6"
@@ -160,8 +163,10 @@ function PurchaseModal({ tier, onClose }: { tier: Tier; onClose: () => void }) {
       >
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-xl font-bold">Buy the {formatUsdc(tier.premium)} plan</h2>
-            <p className="num text-sm text-slate-400">{formatUsdc(tier.coverage)} coverage</p>
+            <h2 className="text-xl font-bold">Buy the {meta.name} plan</h2>
+            <p className="num text-sm text-slate-400">
+              {formatUsdc(tier.premium)}/mo · {formatUsdc(tier.coverage)} coverage
+            </p>
           </div>
           <button
             onClick={onClose}
@@ -214,7 +219,7 @@ function PurchaseModal({ tier, onClose }: { tier: Tier; onClose: () => void }) {
                 id="plate"
                 value={plate}
                 onChange={(e) => setPlate(e.target.value)}
-                placeholder="51-A1-2345"
+                placeholder="ABC-1234"
                 className="field num"
                 autoComplete="off"
                 autoFocus
@@ -224,7 +229,7 @@ function PurchaseModal({ tier, onClose }: { tier: Tier; onClose: () => void }) {
               </p>
               {plate && !plateValid && (
                 <p className="mt-1.5 text-xs text-signal-warn">
-                  Format looks wrong — for example: 51-A1-2345
+                  Format looks wrong — for example: ABC-1234
                 </p>
               )}
             </div>

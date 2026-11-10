@@ -1,8 +1,8 @@
 'use client';
 
-import { formatUsdc, usdcToVnd } from '@/lib/format';
+import { formatUsdc } from '@/lib/format';
 import { cn } from '@/lib/cn';
-import type { Tier } from '@/hooks/usePolicies';
+import { planMeta, type Tier } from '@/hooks/usePolicies';
 
 export function PolicyCard({
   tier,
@@ -15,6 +15,8 @@ export function PolicyCard({
   onSelect: () => void;
   disabled?: boolean;
 }) {
+  const meta = planMeta(tier.id);
+
   return (
     <div
       className={cn(
@@ -29,6 +31,12 @@ export function PolicyCard({
         </>
       )}
 
+      {/* Plan name + one-line pitch */}
+      <div className="mb-5 border-b border-white/10 pb-5">
+        <div className="font-display text-2xl font-bold tracking-tight">{meta.name}</div>
+        {meta.tagline && <p className="mt-1 text-sm text-slate-400">{meta.tagline}</p>}
+      </div>
+
       {/* Fixed-height price block keeps feature lists aligned across the row. */}
       <div className="min-h-[92px]">
         <div className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -38,12 +46,10 @@ export function PolicyCard({
           <span className="text-4xl font-bold tracking-tight">{formatUsdc(tier.premium).replace(' USDC', '')}</span>
           <span className="text-sm font-medium text-slate-500">USDC / mo</span>
         </div>
-        <div className="num text-sm text-slate-500">≈ {usdcToVnd(tier.premium)}/month</div>
       </div>
 
       <dl className="mt-2 space-y-2.5 border-t border-white/10 pt-5 text-sm">
         <Row label="Coverage limit" value={formatUsdc(tier.coverage)} strong />
-        <Row label="Equivalent" value={usdcToVnd(tier.coverage)} />
         <Row label="Term" value={`${String(tier.durationDays)} days`} />
       </dl>
 
