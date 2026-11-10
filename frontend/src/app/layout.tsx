@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://motogo.vercel.app'),
+  metadataBase: new URL('https://motogo-insurance.vercel.app'),
   applicationName: 'MotoGo',
   title: {
     default: 'MotoGo — Motorbike insurance in 90 seconds',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'MotoGo — Motorbike insurance in 90 seconds',
     description:
       'Four AI agents verify, estimate and judge a damage claim automatically. USDC settles on-chain on Ethereum Sepolia.',
-    url: 'https://motogo.vercel.app',
+    url: 'https://motogo-insurance.vercel.app',
     siteName: 'MotoGo',
     type: 'website',
   },

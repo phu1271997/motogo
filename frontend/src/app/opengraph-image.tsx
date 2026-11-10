@@ -30,7 +30,7 @@ export default function OpengraphImage() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '44px' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://motogo.vercel.app/logo.png" width="84" height="84" alt="" />
+          <img src="https://motogo-insurance.vercel.app/logo.png" width="84" height="84" alt="" />
           <div style={{ display: 'flex', fontSize: 44, fontWeight: 700, color: '#f1f5f9' }}>
             MotoGo
           </div>
