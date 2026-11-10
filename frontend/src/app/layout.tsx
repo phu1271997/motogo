@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     'AI claims',
     'Rialo',
   ],
-  authors: [{ name: 'phu1271997', url: 'https://github.com/phu1271997/rialo-claimbot' }],
+  authors: [{ name: 'phu1271997', url: 'https://github.com/phu1271997/motogo' }],
   creator: 'phu1271997',
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },

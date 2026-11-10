@@ -4,7 +4,7 @@
 > A working demo of the problem [Rialo](https://rialo.io) is built to solve.
 
 **Live app:** https://rialo-claimbot-five.vercel.app
-**Code:** https://github.com/phu1271997/rialo-claimbot
+**Code:** https://github.com/phu1271997/motogo
 **Chain:** Ethereum Sepolia (testnet)
 
 ---
