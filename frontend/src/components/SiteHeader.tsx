@@ -33,7 +33,7 @@ export function SiteHeader() {
           <span className="transition group-hover:rotate-[8deg]">
             <Logo size={30} />
           </span>
-          <span>ClaimBot</span>
+          <span>MotoGo</span>
         </Link>
 
         <nav className="hidden gap-1 md:flex" aria-label="Primary">

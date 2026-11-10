@@ -12,7 +12,7 @@ const alchemyKey = process.env.NEXT_PUBLIC_ALCHEMY_KEY;
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID ?? 'claimbot-local-dev';
 
 export const wagmiConfig = getDefaultConfig({
-  appName: 'ClaimBot',
+  appName: 'MotoGo',
   projectId,
   chains: [sepolia],
   transports: {

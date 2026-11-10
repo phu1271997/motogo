@@ -16,16 +16,16 @@ const spaceGrotesk = Space_Grotesk({
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rialo-claimbot-five.vercel.app'),
-  applicationName: 'ClaimBot',
+  metadataBase: new URL('https://motogo.vercel.app'),
+  applicationName: 'MotoGo',
   title: {
-    default: 'ClaimBot — Motorbike insurance in 90 seconds',
-    template: '%s · ClaimBot',
+    default: 'MotoGo — Motorbike insurance in 90 seconds',
+    template: '%s · MotoGo',
   },
   description:
     'File a motorbike insurance claim in 90 seconds. Four AI agents verify, estimate and judge automatically. USDC payout settles on-chain on Ethereum Sepolia. Open-source testnet demo.',
   keywords: [
-    'ClaimBot',
+    'MotoGo',
     'motorbike insurance',
     'Ethereum Sepolia',
     'testnet',
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'ClaimBot — Motorbike insurance in 90 seconds',
+    title: 'MotoGo — Motorbike insurance in 90 seconds',
     description:
       'Four AI agents verify, estimate and judge a damage claim automatically. USDC settles on-chain on Ethereum Sepolia.',
-    url: 'https://rialo-claimbot-five.vercel.app',
-    siteName: 'ClaimBot',
+    url: 'https://motogo.vercel.app',
+    siteName: 'MotoGo',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ClaimBot — Motorbike insurance in 90 seconds',
+    title: 'MotoGo — Motorbike insurance in 90 seconds',
     description:
       'Four AI agents verify, estimate and judge a damage claim automatically. USDC settles on-chain.',
   },
@@ -85,7 +85,7 @@ function SiteFooter() {
         <div>
           <div className="flex items-center gap-2.5">
             <Logo size={26} />
-            <span className="font-display text-base font-semibold tracking-tight">ClaimBot</span>
+            <span className="font-display text-base font-semibold tracking-tight">MotoGo</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
             Micro-insurance for motorbikes, settled on-chain. An MVP on Ethereum Sepolia, built to
@@ -136,7 +136,7 @@ function SiteFooter() {
 
       <div className="border-t border-white/[0.06]">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-slate-600">
-          <span>© 2026 ClaimBot · Testnet demo, not a real insurance product</span>
+          <span>© 2026 MotoGo · Testnet demo, not a real insurance product</span>
           <span className="chip">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Ethereum Sepolia

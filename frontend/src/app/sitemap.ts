@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE = 'https://rialo-claimbot-five.vercel.app';
+const BASE = 'https://motogo.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ['/', '/policies', '/claims', '/claims/new'].map((path) => ({
